@@ -18,16 +18,15 @@
 <li> <label for="name">氏名</label><input type="text" name="name"></li>
 <li> <label for="furigana">フリガナ</label><input type="text" name="furigana"></li>
 <li> <label for="email">メールアドレス</label><input type="text" name="email"></li>
+<!--
 <li> <label for="date">説明会の希望日時</label>
 <select name="date">
 <option value="選択してください">選択してください</option>
 <option value="7/19 19:00〜">7/19 19:00〜</option>
 <option value="7/26 19:00〜">7/26 19:00〜</option>
-</select></li>
-<li><label for="doki">志望動機</label><input type="radio" name="doki" value="起業をしたい">起業をしたい</li>
-<li><label for="doki">&nbsp;</label><input type="radio" name="doki" value="チーズ系企業に就職したい。">チーズ系企業に就職したい。</li>
-<li><label for="doki">&nbsp;</label><input type="radio" name="doki" value="チーズと関わる仕事なので、知識をつけたい。">チーズと関わる仕事なので、知識をつけたい。</li>
-<li><label for="doki">&nbsp;</label><input type="radio" name="doki" value="教養として身につけたい">教養として身につけたい</li>
+</select></li> -->
+<li><label for="sex">性別</label><input type="radio" name="sex" value="男性">男性</li>
+<li><label for="sex">&nbsp;</label><input type="radio" name="sex" value="女性">女性</li>
 <input type="submit" value="">
 </ul>
 </form>
