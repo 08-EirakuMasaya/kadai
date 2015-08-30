@@ -2,7 +2,20 @@
 <head>
 <meta charset="utf-8">
 <title></title>
+<script type="text/javascript" src="./js/jquery-2.1.3.min.js"></script>
 <link rel="stylesheet" type="text/css" href="./css/style.css">
+<script>
+    $(document).ready(function(){
+                      function agebox(){
+                      for(i = 0; i <= 90; i = i++){
+                      var option = $("option");
+                      option.attr("value",i)}
+                          option.html(i + "歳")
+                          $("age").html(option);
+                          }
+        $("age").value = 20;
+                      });
+    </script>
 </head>
 <body>
 <div id="entry">
@@ -27,6 +40,7 @@
 </select></li> -->
 <li><label for="sex">性別</label><input type="radio" name="sex" value="男性">男性</li>
 <li><label for="sex">&nbsp;</label><input type="radio" name="sex" value="女性">女性</li>
+<li>年齢を選択してください。<select id="age"></select></li>
 <input type="submit" value="">
 </ul>
 </form>
