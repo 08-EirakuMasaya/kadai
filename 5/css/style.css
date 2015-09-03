@@ -23,7 +23,19 @@ a:hover {
 }
 ul {
   list-style: none;
+    width:600px;
+	margin:0 auto;
+	text-align:center;
 }
+li {
+	text-align:left;
+	margin:15px 10px;
+}
+.inner {
+	width:auto;
+	padding:60px 0;
+}
+
 
 .title {
 	text-align:center;
@@ -31,6 +43,9 @@ ul {
     line-height: 1;
 }
 .title span {
+	color:#000000;
+}
+span {
 color:  #ffd61a;
 font-size: 21px;
 }
@@ -38,12 +53,6 @@ font-size: 21px;
 .title p+p {
 	margin-top:20px;
 }
-.inner {
-	position: relative;
-    width: 960px;
-    margin: 0 auto;
-}
-
 #entry {
 	margin:0 auto;
 	min-width:960px;
@@ -56,47 +65,48 @@ font-size: 21px;
 	width:100%;
 	background-color: #ffd61a;
 }
-#entry .title span {
-	color:#000000;
-}
-#entry h2 {
+
+h2 {
 	display:table-cell;
 	vertical-align:middle;
 }
 #entry h2 p+p {
 	color:#FFFFFF;
 }
-#entry .inner {
-	width:auto;
-	padding:60px 0;
-}
-#entry ul {
-	width:600px;
+#comf {
 	margin:0 auto;
-	text-align:center;
+	min-width:960px;
 }
-#entry li {
-	text-align:left;
-	margin:15px 10px;
+#comf .title {
+	display:table;
+	margin:0 auto;
+	height:180px;
+	min-width:960px;
+	width:100%;
+	background-color: #4b90dd;
 }
-#entry label {
+
+#comf h2 p+p {
+	color:#FFFFFF;
+}
+label {
     margin: 0 10px;
 	width:130px;
     float: left;
 } 
 
-#entry input[type=text] {
+input[type=text] {
 	margin-left: 10px;
 	width:170px;
 	height:16px;
 }
-#entry input[type=radio] {
+input[type=radio] {
 	margin-left: 10px;
 	margin-right:16px;
 	width:11px;
 	height:11px;
 }
-#entry select {
+select {
 	width:220px;
     margin-left: 10px;
 }
@@ -105,9 +115,16 @@ font-size: 21px;
 	margin:100px auto 0 auto;
 	width:400px;
 	height:90px;
-	background:url(../img/btn-entry.png) no-repeat;
+	background:url(../img/btn_comfirm.png) no-repeat;
 }
-#entry input[type=submit]:hover {
+#comf input[type=submit] {
+	border:none;
+	margin:100px auto 0 auto;
+	width:400px;
+	height:90px;
+	background:url(../img/btn_send.png) no-repeat;
+}
+input[type=submit]:hover {
 	opacity: 0.6;
 	filter: alpha(opacity=60);
 }
