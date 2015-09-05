@@ -117,7 +117,7 @@ select {
 	height:90px;
 	background:url(../img/btn_comfirm.png) no-repeat;
 }
-#comf input[type=submit] {
+#comf a {
 	border:none;
 	margin:100px auto 0 auto;
 	width:400px;

@@ -5,11 +5,20 @@
 <link rel="stylesheet" type="text/css" href="./css/style.css">
 </head>
 <?php
-$name = $_GET["name"];
-$furigana = $_GET["furigana"];
-$email = $_GET["email"];
-$sex = $_GET["sex"];
-$age = $_GET["age"];
+session_start();
+$_SESSION['shohin_id'] = 1;
+
+$_SESSION["name"] = $_GET["name"];
+$_SESSION["furigana"] = $_GET["furigana"];
+$_SESSION["email"] = $_GET["email"];
+$_SESSION["sex"] = $_GET["sex"];
+$_SESSION["age"] = $_GET["age"];
+
+$name = $_SESSION["name"];
+$furigana = $_SESSION["furigana"];
+$email = $_SESSION["email"];
+$sex = $_SESSION["sex"];
+$age = $_SESSION["age"];
 ?>
 <body>
 <div id="comf">
@@ -26,7 +35,7 @@ $age = $_GET["age"];
 <li> メールアドレス:<?php echo $email; ?></li>
 <li> 性別:<?php echo $sex; ?></li>
 <li> 年齢:<?php echo $age; ?></li>
-<input type="submit" formaction="input_finish.php" value="">
+    <a href="input_finish.php"><img src="./img/btn_send.png" ></a>
 </ul>
 </div>
 </div>
