@@ -89,6 +89,22 @@ h2 {
 #comf h2 p+p {
 	color:#FFFFFF;
 }
+#thank {
+	margin:0 auto;
+	min-width:960px;
+}
+#thank .title {
+	display:table;
+	margin:0 auto;
+	height:180px;
+	min-width:960px;
+	width:100%;
+	background-color: #4ec860;
+}
+
+#thank h2 p+p {
+	color:#FFFFFF;
+}
 label {
     margin: 0 10px;
 	width:130px;
@@ -122,7 +138,12 @@ select {
 	margin:100px auto 0 auto;
 	width:400px;
 	height:90px;
-	background:url(../img/btn_send.png) no-repeat;
+}
+#thank a {
+	border:none;
+	margin:100px auto 0 auto;
+	width:400px;
+	height:90px;
 }
 input[type=submit]:hover {
 	opacity: 0.6;
