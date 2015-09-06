@@ -1,12 +1,15 @@
 <?php include("header.php"); ?>
    <?php
 $pdo = new PDO("mysql:host=localhost;dbname=cs_academy;charset=utf8", "root", "");//hostは繋ぎ場所。rootはデータベースに繋げるユーザー。最後の「""」はパスワード
-$sql = "SELECT create_date,news_title from news"; //sql文
+$sql = "SELECT * FROM news"; //sql文
 $stmt = $pdo->prepare($sql);
 $stmt->execute(); //executeは実行の意味
 $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $pdo = null; //pdoを切断
 var_dump($results);
+foreach ($results as $value){
+  echo $value["news_title"]."|".$value["create_date"]."<br>";
+}
 ?>
     
     <section class="main_visual">
