@@ -20,6 +20,7 @@ $email = $_SESSION["email"];
 $sex = $_SESSION["sex"];
 $age = $_SESSION["age"];
 ?>
+
 <body>
 <div id="comf">
 <div  class="title">

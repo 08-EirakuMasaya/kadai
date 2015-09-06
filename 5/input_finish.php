@@ -14,7 +14,8 @@
 </h2>
         </div>
         <div class="inner">
-            <a href="show_enp.php"><img src="./img/btn_result.png"></a>
+           <a href="show_enp.php"><img src="./img/btn_result.png"></a>
+            
         </div>
     </div>
 </body>
