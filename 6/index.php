@@ -6,24 +6,14 @@ $stmt = $pdo->prepare($sql);
 $stmt->execute(); //executeは実行の意味
 $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $pdo = null; //pdoを切断
-$sql  = "SELECT ";
-	$sql .= "IF( CHAR_LENGTH(news_title)>3,";
-	$sql .= "CONCAT(LEFT(news_title,3),'...'), ";
-	$sql .= "news_title) ";
-	$sql .= "FROM tbl_test";
-$link = mysqli_connect("lochalhost", "root", "","cs_academy");
-mysqli_set_charaset($link,"utf8");
-	$result = mysqli_query($link , $sql);
 
-	// 結果を表示
-	while($row=mysql_fetch_array($result)) {
-		echo "<p>コメント：{$row[0]}</p>";
-	}
 var_dump($results);
 foreach ($results as $value){
     $date_num = $value["create_date"];
  echo date("Y.m.d",strtotime($date_num));
-  echo $value["news_title"]."<br>";
+    
+  echo mb_strimwidth($value["news_title"],0,9,'...')."<br>";//半角
+    //SELECTで直接文字数指定　SELECT * , LEFT(news_title,3) as con FROM post;
 }
 ?>
     
