@@ -20,8 +20,9 @@ $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $pdo = null; //pdoを切断
                foreach ($results as $value){
     $date_num = $value["create_date"];
- echo "<dt class='news-date'>" . date("Y.m.d",strtotime($date_num))."<dt>";
- echo "<dd class='news-description'>" . mb_strimwidth($value["news_title"],0,9,'...')."<dd>";//半角
+                   $id = $value["news_id"];
+ echo "<dt class='news-date'><a href='news.php?".$id."'>" . date("Y.m.d",strtotime($date_num))."</dt>";
+ echo "<dd class='news-description'>" . mb_strimwidth($value["news_title"],0,9,'...')."</a></dd>";//半角
     //SELECTで直接文字数指定　SELECT * , LEFT(news_title,3) as con FROM post;
                    }
                    ?>
