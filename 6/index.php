@@ -1,45 +1,35 @@
 <?php include("header.php"); ?>
-   <?php
-$pdo = new PDO("mysql:host=localhost;dbname=cs_academy;charset=utf8", "root", "");//hostは繋ぎ場所。rootはデータベースに繋げるユーザー。最後の「""」はパスワード
-$sql = "SELECT * FROM news"; //sql文
-$stmt = $pdo->prepare($sql);
-$stmt->execute(); //executeは実行の意味
-$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-$pdo = null; //pdoを切断
-
-var_dump($results);
-foreach ($results as $value){
-    $date_num = $value["create_date"];
- echo date("Y.m.d",strtotime($date_num));
-    
-  echo mb_strimwidth($value["news_title"],0,9,'...')."<br>";//半角
-    //SELECTで直接文字数指定　SELECT * , LEFT(news_title,3) as con FROM post;
-}
-?>
-    
     <section class="main_visual">
         <div class="inner">
             <p class="catch text-center">世界を震わすチーズを創ろう。<span class="catch-small">新しい形のチーズ職人養成学校、はじまります。</span></p>
         </div>
     </section>
-    
+
     <section class="news contents-box">
         <h2 class="section-title text-center">
             <span class="section-title__yellow">News</span><span class="section-title-ja text-center">お知らせ・更新情報</span>
         </h2>
         <article class="news-detail">
             <dl class="clearfix">
-                <dt class="news-date">2015.07.12</dt>
-                <dd class="news-description">初日開講しました！</dd>
-                <dt class="news-date">2015.06.12</dt>
-                <dd class="news-description">初めてのチーズハッカソンを開催しました！</dd>
-                <dt class="news-date">2015.04.11</dt>
-                <dd class="news-description">トーキョーチーズFesを開催いたしました！</dd>
+                <?php
+$pdo = new PDO("mysql:host=localhost;dbname=cs_academy;charset=utf8", "root", "");//hostは繋ぎ場所。rootはデータベースに繋げるユーザー。最後の「""」はパスワード
+$sql = "SELECT * FROM news"; //sql文
+$stmt = $pdo->prepare($sql);
+$stmt->execute(); //executeは実行の意味
+$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$pdo = null; //pdoを切断
+               foreach ($results as $value){
+    $date_num = $value["create_date"];
+ echo "<dt class='news-date'>" . date("Y.m.d",strtotime($date_num))."<dt>";
+ echo "<dd class='news-description'>" . mb_strimwidth($value["news_title"],0,9,'...')."<dd>";//半角
+    //SELECTで直接文字数指定　SELECT * , LEFT(news_title,3) as con FROM post;
+                   }
+                   ?>
             </dl>
             <p class="view-detail text-right"><a href="#">ニュース一覧を見る</a></p>
         </article>
     </section>
-   
+
     <section class="feature contents-box">
         <div class="inner">
             <h2 class="section-title text-center">
@@ -52,7 +42,7 @@ foreach ($results as $value){
             </ul>
         </div>
     </section>
-    
+
     <section class="cource contents-box">
         <div class="inner">
             <h2 class="section-title text-center">
@@ -61,26 +51,28 @@ foreach ($results as $value){
             <div class="block-cource block-cource-lab clearfix">
                 <div class="cource-img"><img src="img/cource-lab.png" alt=""></div>
                 <div class="cource-txt cource-txt__usually">
-                <h3 class="cource-title text-center">LABコース</h3>
-                <p>週末集中型の初心者対象のチーズ職人養成講座です。<br />
-                    週末集中型の初心者対象のチーズ職人養成講座です。<br />
-                    週末集中型の初心者対象のチーズ職人養成講座です。<br />
-                    週末集中型の初心者対象のチーズ職人養成講座です。<br />
-                    週末集中型の初心者対象のチーズ職人養成講座です。<br />
+                    <h3 class="cource-title text-center">LABコース</h3>
+                    <p>週末集中型の初心者対象のチーズ職人養成講座です。
+                        <br /> 週末集中型の初心者対象のチーズ職人養成講座です。
+                        <br /> 週末集中型の初心者対象のチーズ職人養成講座です。
+                        <br /> 週末集中型の初心者対象のチーズ職人養成講座です。
+                        <br /> 週末集中型の初心者対象のチーズ職人養成講座です。
+                        <br />
                     </p>
                 </div>
             </div>
-            <div class="block-cource clearfix">   
+            <div class="block-cource clearfix">
                 <div class="cource-img__reverse">
                     <img src="img/cource-academy.png" alt="">
                 </div>
                 <div class="cource-txt cource-txt__reverse">
                     <h3 class="cource-title text-center">ACADEMYコース</h3>
-                    <p>週末集中型の初心者対象のチーズ職人養成講座です。<br />
-                    週末集中型の初心者対象のチーズ職人養成講座です。<br />
-                    週末集中型の初心者対象のチーズ職人養成講座です。<br />
-                    週末集中型の初心者対象のチーズ職人養成講座です。<br />
-                    週末集中型の初心者対象のチーズ職人養成講座です。<br />
+                    <p>週末集中型の初心者対象のチーズ職人養成講座です。
+                        <br /> 週末集中型の初心者対象のチーズ職人養成講座です。
+                        <br /> 週末集中型の初心者対象のチーズ職人養成講座です。
+                        <br /> 週末集中型の初心者対象のチーズ職人養成講座です。
+                        <br /> 週末集中型の初心者対象のチーズ職人養成講座です。
+                        <br />
                     </p>
                 </div>
             </div>
@@ -95,18 +87,42 @@ foreach ($results as $value){
         </div>
         <div class="inner contents-box">
             <ul class="list-gallery clearfix">
-                <li><a href="#"><img src="img/gallery01.jpg" alt="" /></a></li>
-                <li><a href="#"><img src="img/gallery02.jpg" alt="" /></a></li>
-                <li><a href="#"><img src="img/gallery03.jpg" alt="" /></a></li>
-                <li class="no-white-space"><a href="#"><img src="img/gallery04.jpg" alt="" /></a></li>
-                <li><a href="#"><img src="img/gallery05.jpg" alt="" /></a></li>
-                <li><a href="#"><img src="img/gallery06.jpg" alt="" /></a></li>
-                <li><a href="#"><img src="img/gallery07.jpg" alt="" /></a></li>
-                <li class="no-white-space"><a href="#"><img src="img/gallery08.jpg" alt="" /></a></li>
-                <li><a href="#"><img src="img/gallery09.jpg" alt="" /></a></li>
-                <li><a href="#"><img src="img/gallery10.jpg" alt="" /></a></li>
-                <li><a href="#"><img src="img/gallery11.jpg" alt="" /></a></li>
-                <li class="no-white-space"><a href="#"><img src="img/gallery12.jpg" alt="" /></a></li>
+                <li>
+                    <a href="#"><img src="img/gallery01.jpg" alt="" /></a>
+                </li>
+                <li>
+                    <a href="#"><img src="img/gallery02.jpg" alt="" /></a>
+                </li>
+                <li>
+                    <a href="#"><img src="img/gallery03.jpg" alt="" /></a>
+                </li>
+                <li class="no-white-space">
+                    <a href="#"><img src="img/gallery04.jpg" alt="" /></a>
+                </li>
+                <li>
+                    <a href="#"><img src="img/gallery05.jpg" alt="" /></a>
+                </li>
+                <li>
+                    <a href="#"><img src="img/gallery06.jpg" alt="" /></a>
+                </li>
+                <li>
+                    <a href="#"><img src="img/gallery07.jpg" alt="" /></a>
+                </li>
+                <li class="no-white-space">
+                    <a href="#"><img src="img/gallery08.jpg" alt="" /></a>
+                </li>
+                <li>
+                    <a href="#"><img src="img/gallery09.jpg" alt="" /></a>
+                </li>
+                <li>
+                    <a href="#"><img src="img/gallery10.jpg" alt="" /></a>
+                </li>
+                <li>
+                    <a href="#"><img src="img/gallery11.jpg" alt="" /></a>
+                </li>
+                <li class="no-white-space">
+                    <a href="#"><img src="img/gallery12.jpg" alt="" /></a>
+                </li>
             </ul>
         </div>
     </section>
@@ -121,19 +137,26 @@ foreach ($results as $value){
                 <table>
                     <tr>
                         <td class="form-text">氏名</td>
-                        <td><input type="text" value="" name="name"></td>
+                        <td>
+                            <input type="text" value="" name="name">
+                        </td>
                     </tr>
                     <tr>
                         <td class="form-text">フリガナ</td>
-                        <td><input type="text" value="" name="kana"></td>
+                        <td>
+                            <input type="text" value="" name="kana">
+                        </td>
                     </tr>
                     <tr>
                         <td class="form-text">メールアドレス</td>
-                        <td><input type="text" value="" name="email"></td>
+                        <td>
+                            <input type="text" value="" name="email">
+                        </td>
                     </tr>
                     <tr>
                         <td class="form-text">説明会の希望日時</td>
-                        <td><select id="select-box" name="date">
+                        <td>
+                            <select id="select-box" name="date">
                                 <option value="2015/7/18 10:00">2015/7/18 10:00</option>
                                 <option value="2015/7/25 10:00">2015/7/25 10:00</option>
                             </select>
@@ -142,17 +165,23 @@ foreach ($results as $value){
                     <tr>
                         <td class="form-text">志望動機</td>
                         <td>
-                            <label for="1"><input type="radio" name="motivation" value="起業したい" id="1">起業をしたい</label>
-                            <label for="2"><input type="radio" name="motivation" value="チーズ企業に就職したい。" id="2">チーズ企業に就職したい。</label>
-                            <label for="3"><input type="radio" name="motivation" value="チーズと関わる仕事なので、知識をつけたい。" id="3">チーズと関わる仕事なので、知識をつけたい。</label>
-                            <label for="4"><input type="radio" name="motivation" value="教養として身につけたい" id="4">教養として身につけたい</label>
+                            <label for="1">
+                                <input type="radio" name="motivation" value="起業したい" id="1">起業をしたい</label>
+                            <label for="2">
+                                <input type="radio" name="motivation" value="チーズ企業に就職したい。" id="2">チーズ企業に就職したい。</label>
+                            <label for="3">
+                                <input type="radio" name="motivation" value="チーズと関わる仕事なので、知識をつけたい。" id="3">チーズと関わる仕事なので、知識をつけたい。</label>
+                            <label for="4">
+                                <input type="radio" name="motivation" value="教養として身につけたい" id="4">教養として身につけたい</label>
                         </td>
                     </tr>
                 </table>
-                <p class="text-center"><input type="submit" class="entry-btn"></p>
+                <p class="text-center">
+                    <input type="submit" class="entry-btn">
+                </p>
             </form>
         </div>
     </section>
 
     <!--#information-->
-<?php include("footer.php"); ?>
+    <?php include("footer.php"); ?>
