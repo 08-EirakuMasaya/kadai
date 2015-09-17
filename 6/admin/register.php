@@ -6,15 +6,15 @@
 </head>
 
 <body>
-    <div id="login">
+    <div id="register">
         <div class="title">
             <h2>
-<p><span>LOGIN</span></p>
-<p>ログイン</p>
+<p><span>New User Registration</span></p>
+<p>新規ユーザー登録</p>
 </h2>
         </div>
         <div class="inner">
-            <form action="login_execute.php" method="post">
+            <form action="register_execute.php" method="post">
                <ul>
                <li>
                 ログイン名:
@@ -26,7 +26,6 @@
                 </li>
                 </ul>
                 <input type="submit"  value="" />
-                <p><a href="register.php">管理者を新規に登録する</a></p>
             </form>
         </div>
     </div><!-- end login -->

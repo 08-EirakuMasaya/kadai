@@ -18,8 +18,7 @@ body {
 a:hover {
   margin: 0;
   padding: 0;
-	opacity: 0.6;
-	filter: alpha(opacity=60);
+    background-color: #ffd61a ;
 }
 ul {
   list-style: none;
@@ -40,8 +39,11 @@ li {
 
 .title {
 	text-align:center;
-	display: block;
     line-height: 1;
+    display:table;
+	margin:0 auto;
+	height:180px;
+	width:100%;
 }
 .title span {
 	color:#000000;
@@ -54,27 +56,31 @@ font-size: 21px;
 .title p+p {
 	margin-top:20px;
 }
-#login {
+#login,#register {
 	margin:0 auto;
 }
 #login .title {
-	display:table;
-	margin:0 auto;
-	height:180px;
-	width:100%;
 	background-color: #ffd61a;
 }
-#login h2 p+p {
+#register .title {
+	background-color: #4befc6;
+}
+#login,#register h2 p+p {
 	color:#FFFFFF;
 }
+
 #login input[type=submit] {
+    background:url(../img/btn_login.png) no-repeat;
+}
+#register input[type=submit] {
+    background:url(../img/btn_register.png) no-repeat;
+}
+input[type=submit] {
 	border:none;
-	margin:100px auto 0 auto;
+	margin:100px auto 30px; auto;
 	width:400px;
 	height:90px;
-	background:url(../img/btn_login.png) no-repeat;
 }
-
 h2 {
 	display:table-cell;
 	vertical-align:middle;
