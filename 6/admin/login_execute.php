@@ -21,11 +21,13 @@ else if(empty($_POST["password"]))
 else {
 $pdo = new PDO("mysql:host=localhost;dbname=cs_academy;charset=utf8", "root", "");
     $hashed_passwd = password_hash($password,PASSWORD_DEFAULT);//ハッシュ化（暗号化？）
-$sql = "SELECT * FROM user WHERE user_name = :name"; //sql文。テーブルを指定
-$stmt = $pdo->prepare($sql);//データベース（$POD）の中のテーブル($sql)を準備
-$stmt->bindparam(':name', $name, PDO::PARAM_STR);
-$stmt->execute();
-if($stmt->execute()) { 
+$sql = "INSERT INTO user (id, user_name, pass, create_date, update_date) VALUES (NULL, :name, :pass, sysdate(), sysdate()) ";//query はそのまま実行。prepare は後で execute が必要
+$stmt = $pdo->prepare($sql);
+$stmt->bindValue(':name', $name, PDO::PARAM_STR);
+$stmt->bindValue(':pass', $password, PDO::PARAM_STR);
+$result = $stmt->execute();
+var_dump($result);
+if($result) { 
     $status = "ok";
     $login_error = "<p class='alert'>成功</p>";
 }else{
