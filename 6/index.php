@@ -11,12 +11,12 @@
         </h2>
         <article class="news-detail">
             <dl class="clearfix">
-                <?php
+<?php
 $pdo = new PDO("mysql:host=localhost;dbname=cs_academy;charset=utf8", "root", "");//hostは繋ぎ場所。rootはデータベースに繋げるユーザー。最後の「""」はパスワード
-$sql = "SELECT * FROM news"; //sql文
-$stmt = $pdo->prepare($sql);
+$sql = "SELECT * FROM news"; //sql文。テーブルを指定
+$stmt = $pdo->prepare($sql);//データベース（$POD）の中のテーブル($sql)を準備
 $stmt->execute(); //executeは実行の意味
-$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$results = $stmt->fetchAll(PDO::FETCH_ASSOC);//「fetchAll」全データを配列に変換。「PDO::FETCH_ASSOC」カラム名で配列指定
 $pdo = null; //pdoを切断
                foreach ($results as $value){
     $date_num = $value["create_date"];
@@ -25,7 +25,7 @@ $pdo = null; //pdoを切断
  echo "<dd class='news-description'>" . mb_strimwidth($value["news_title"],0,9,'...')."</a></dd>";//半角
     //SELECTで直接文字数指定　SELECT * , LEFT(news_title,3) as con FROM post;
                    }
-                   ?>
+?>
             </dl>
             <p class="view-detail text-right"><a href="#">ニュース一覧を見る</a></p>
         </article>

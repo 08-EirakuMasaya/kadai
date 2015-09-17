@@ -13,7 +13,7 @@ abbr, address, cite, code,
 del, dfn, em, img, ins, kbd, q, samp,
 small, strong, sub, sup, var,
 b, i,
-dl, dt, dd, ol, ul, li,
+dl, dt, dd, ol, ul,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, figcaption, figure,
@@ -117,7 +117,6 @@ input, select {
 
 input, select, textarea {
   margin: 0px;
-  color: #727172;
   border: solid 1px #bababa;
   font-weight: normal;
   padding: 0px 2px;
