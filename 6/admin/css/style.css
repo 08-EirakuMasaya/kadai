@@ -106,3 +106,8 @@ input {
     color: red;
     padding-bottom: 20px;
 }
+.success {
+    font-weight: bold;
+    color: #4befc6;
+    padding-bottom: 20px;
+}

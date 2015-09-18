@@ -29,15 +29,16 @@ $result = $stmt->execute();
 var_dump($result);
 if($result) { 
     $status = "ok";
-    $login_error = "<p class='alert'>成功</p>";
+    $login_error = "<p class='success'>登録が完了しました。<a href='login.php'>ログイン画面へ移動</a></p>";
 }else{
-    //既に存在するユーザ名だった場合INSERTに失敗する
+    //ユーザー名に紐付いたパスワードのハッシュが一緒出なかったらfalse
     $status = "failed";
     $login_error = "<p class='alert'>エラー：既に存在するユーザ名です。</p>";
 }
     var_dump($hashed_password);
     var_dump($stmt);
 }
+$pdo = null;
 ?>
 <html>
 
@@ -57,7 +58,7 @@ if($result) {
         <div class="inner">
            <p class="alert"><?php echo $alert ?></p>
            <?php echo $login_error ?>
-            <form action="login_execute.php" method="post">
+            <form action="register_execute.php" method="post">
                <ul>
                <li>
                 ログイン名:
