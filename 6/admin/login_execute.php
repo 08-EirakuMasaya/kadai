@@ -1,4 +1,6 @@
 <?php
+//セッション開始
+session_start();
 $name = $_POST["name"];
 $password = $_POST["password"];
 $status = "none";
@@ -20,12 +22,11 @@ else if(empty($_POST["password"]))
    }
 else {
 $pdo = new PDO("mysql:host=localhost;dbname=cs_academy;charset=utf8", "root", "");
-    $hashed_passwd = password_hash($password,PASSWORD_DEFAULT);//ハッシュ化（暗号化？）
-$sql = "INSERT INTO user (id, user_name, pass, create_date, update_date) VALUES (NULL, :name, :pass, sysdate(), sysdate()) ";//query はそのまま実行。prepare は後で execute が必要
+    $hashed_password = password_hash($password,PASSWORD_DEFAULT);//ハッシュ化（暗号化？）
+$sql = "SELECT * FROM user WHERE user_name ='" .$name.  "' AND pass ='" . $password. "'";
 $stmt = $pdo->prepare($sql);
-$stmt->bindValue(':name', $name, PDO::PARAM_STR);
-$stmt->bindValue(':pass', $password, PDO::PARAM_STR);
-$result = $stmt->execute();
+$stmt->execute();
+$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 var_dump($result);
 if($result) { 
     $status = "ok";
@@ -33,10 +34,8 @@ if($result) {
 }else{
     //既に存在するユーザ名だった場合INSERTに失敗する
     $status = "failed";
-    $login_error = "<p class='alert'>エラー：既に存在するユーザ名です。</p>";
+    $login_error = "<p class='alert'>ユーザー名、またはパスワードが間違っています。</p>";
 }
-    var_dump($hashed_passwd);
-    var_dump($stmt);
 }
 ?>
 <html>
