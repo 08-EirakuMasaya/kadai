@@ -23,12 +23,17 @@ else if(empty($_POST["password"]))
 else {
 $pdo = new PDO("mysql:host=localhost;dbname=cs_academy;charset=utf8", "root", "");
     $hashed_password = password_hash($password,PASSWORD_DEFAULT);//ハッシュ化（暗号化？）
-$sql = "SELECT * FROM user WHERE user_name ='" .$name.  "' AND pass ='" . $password. "'";
+$sql = "SELECT * FROM user WHERE user_name ='" .$name. "'";
 $stmt = $pdo->prepare($sql);
 $stmt->execute();
-$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-var_dump($result);
-if($result) { 
+$result = $stmt->fetch(PDO::FETCH_OBJ);
+$seted_password = $result->pass;
+var_dump(password_verify($password , $seted_password));
+    var_dump($password);
+    var_dump($seted_password);
+
+
+if($result && password_verify($password, $seted_password)) { 
     $status = "ok";
     $login_error = "<p class='alert'>成功</p>";
 }else{
