@@ -12,8 +12,11 @@ foreach ($results as $value){
  $view .= "<dd>" . mb_strimwidth($value["news_title"],0,9,'...', "UTF-8")."</dd></a>";//半角
     //SELECTで直接文字数指定　SELECT * , LEFT(news_title,3) as con FROM post;   
  $view .= "<dd>" . mb_strimwidth($value["news_detail"],0,19,'...', "UTF-8")."</dd>";
-    $link = 'window.location.href="update.php?id='.$id.'"';
-    $view .= "<INPUT TYPE='button' VALUE='編集' onClick='".$link."'>
+    $link1 = 'window.location.href="update.php?id='.$id.'"';
+    $view .= "<INPUT TYPE='button' VALUE='編集' onClick='".$link1."'>
+";
+    $link2 = 'window.location.href="delete_execute.php?id='.$id.'"';
+    $view .= "<INPUT TYPE='button' VALUE='削除' onClick='".$link2."'>
 ";
  $view .= "<hr>";
                    }

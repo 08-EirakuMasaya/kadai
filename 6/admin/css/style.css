@@ -38,11 +38,11 @@ li {
 
 
 .title {
+    padding: 70px 0 40px;
 	text-align:center;
     line-height: 1;
     display:table;
 	margin:0 auto;
-	height:180px;
 	width:100%;
 }
 .title span {
@@ -71,7 +71,7 @@ font-size: 21px;
 #post .title {
 	background-color: #60c0f2;
 }
-#login,#register,#post,#admin h2 p+p {
+h2 p+p {
 	color:#FFFFFF;
 }
 
@@ -90,10 +90,7 @@ input[type=submit] {
 	width:400px;
 	height:90px;
 }
-h2 {
-	display:table-cell;
-	vertical-align:middle;
-}
+
 
 
 label {
@@ -107,6 +104,10 @@ input[type=submit]:hover {
 	filter: alpha(opacity=60);
 }
 input {
+  height: 20px;
+}
+#admin input {
+    margin-top: 50px;
   height: 20px;
 }
 

@@ -12,8 +12,16 @@
         <article class="news-detail">
             <dl class="clearfix">
 <?php
+session_start(); 		// セッションを使うときは宣言
+if (isset($_SESSION["log"])) {  //isset（イズセット）で設定されているかどうかの判定
+    $link ='location.href="admin/index.php"';
+	$admin = "<INPUT TYPE='button' VALUE='管理画面へ' onClick='$link'>";
+}
+else{
+    $admin= "";
+}
 $pdo = new PDO("mysql:host=localhost;dbname=cs_academy;charset=utf8", "root", "");//hostは繋ぎ場所。rootはデータベースに繋げるユーザー。最後の「""」はパスワード
-$sql = "SELECT * FROM news"; //sql文。テーブルを指定
+$sql = "SELECT * FROM news LIMIT 5"; //sql文。テーブルを指定
 $stmt = $pdo->prepare($sql);//データベース（$POD）の中のテーブル($sql)を準備
 $stmt->execute(); //executeは実行の意味
 $results = $stmt->fetchAll(PDO::FETCH_ASSOC);//「fetchAll」全データを配列に変換。「PDO::FETCH_ASSOC」カラム名で配列指定
@@ -27,6 +35,7 @@ $pdo = null; //pdoを切断
                    }
 ?>
             </dl>
+            <p class="view-detail text-right"><?php echo $admin ?></p>
             <p class="view-detail text-right"><a href="#">ニュース一覧を見る</a></p>
         </article>
     </section>

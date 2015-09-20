@@ -1,6 +1,4 @@
 <?php
-//セッション開始
-session_start();
 $name = $_POST["name"];
 $password = $_POST["password"];
 $status = "none";
@@ -39,6 +37,9 @@ $seted_password = $result->pass;
 if(password_verify($password, $seted_password)) { //文字数に注意！カラムで制限している数をチェック
     $status = "ok";
     $login_error = "<p class='alert'>成功</p>";
+    //セッション開始
+session_start();
+    $_SESSION["log"] = "1";
     header("Location:index.php");
 }else{
     //既に存在するユーザ名だった場合INSERTに失敗する
