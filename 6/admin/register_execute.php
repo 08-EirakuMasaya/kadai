@@ -31,7 +31,7 @@ if($result) {
     $status = "ok";
     $login_error = "<p class='success'>登録が完了しました。<a href='login.php'>ログイン画面へ移動</a></p>";
 }else{
-    //ユーザー名に紐付いたパスワードのハッシュが一緒出なかったらfalse
+    //ユーザー名に紐付いたパスワードのハッシュが一緒じゃなかったらfalse
     $status = "failed";
     $login_error = "<p class='alert'>エラー：既に存在するユーザ名です。</p>";
 }

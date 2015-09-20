@@ -56,7 +56,7 @@ font-size: 21px;
 .title p+p {
 	margin-top:20px;
 }
-#login,#register {
+#login,#register,#post,#admin {
 	margin:0 auto;
 }
 #login .title {
@@ -65,7 +65,13 @@ font-size: 21px;
 #register .title {
 	background-color: #4befc6;
 }
-#login,#register h2 p+p {
+#admin .title {
+	background-color: #d7bc74;
+}
+#post .title {
+	background-color: #60c0f2;
+}
+#login,#register,#post,#admin h2 p+p {
 	color:#FFFFFF;
 }
 
@@ -74,6 +80,9 @@ font-size: 21px;
 }
 #register input[type=submit] {
     background:url(../img/btn_register.png) no-repeat;
+}
+#post input[type=submit] {
+    background:url(../img/btn_post.png) no-repeat;
 }
 input[type=submit] {
 	border:none;
@@ -110,4 +119,18 @@ input {
     font-weight: bold;
     color: #4befc6;
     padding-bottom: 20px;
+}
+#post .success {
+    color: #60c0f2;
+}
+#post table {
+    margin: 0 auto;
+}
+
+#post tr {
+    text-align: left;
+}
+ #post td {
+     padding: 0 10px;
+    vertical-align: top;
 }
