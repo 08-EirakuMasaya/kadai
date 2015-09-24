@@ -30,7 +30,7 @@ $pdo = null; //pdoを切断
     $date_num = $value["create_date"];
                    $id = $value["news_id"];
  echo "<dt class='news-date'><a href='news.php?".$id."'>" . date("Y.m.d",strtotime($date_num))."</dt>";
- echo "<dd class='news-description'>" . mb_strimwidth($value["news_title"],0,9,'...')."</a></dd>";//半角
+ echo "<dd class='news-description'>" . mb_strimwidth($value["news_title"],0,44,'...')."</a></dd>";//半角
     //SELECTで直接文字数指定　SELECT * , LEFT(news_title,3) as con FROM post;
                    }
 ?>

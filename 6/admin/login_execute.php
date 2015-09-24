@@ -20,16 +20,15 @@ else if(empty($_POST["password"]))
    }
 else {
 $pdo = new PDO("mysql:host=localhost;dbname=cs_academy;charset=utf8", "root", "");
-    $hashed_password = password_hash($password,PASSWORD_DEFAULT);//ハッシュ化（暗号化？）生成される文字は基本60文字？
 $sql = "SELECT * FROM user WHERE user_name ='" .$name. "'";//ユーザー名が同一のレコードを選択
 $stmt = $pdo->prepare($sql);
 $stmt->execute();
-$result = $stmt->fetch(PDO::FETCH_OBJ);
+$result = $stmt->fetch(PDO::FETCH_OBJ);//単一カラムの取得
 if($result){ //値が取得できたかどうかの判定
-$seted_password = $result->pass;
+$seted_password = $result->pass;//レコードから登録済みのパスワードを取得
     }
     else{
-        $seted_password = 0; //値が出来なかったため、適当な値を入れる。
+        $seted_password = 0; //値が取得出来なかったため、適当な値を入れる。
     }
 //var_dump(password_verify($password , $seted_password));
 //var_dump($password);
@@ -42,7 +41,7 @@ session_start();
     $_SESSION["log"] = "1";
     header("Location:index.php");
 }else{
-    //既に存在するユーザ名だった場合INSERTに失敗する
+    //ユーザー名、パスワードが違う場合。
     $status = "failed";
     $login_error = "<p class='alert'>ユーザー名、またはパスワードが間違っています。</p>";
 }

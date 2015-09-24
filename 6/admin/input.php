@@ -35,6 +35,7 @@
                </table>
                 <input type="submit"  value="" />
             </form>
+            <INPUT TYPE="button" VALUE="TOPへ戻る" onClick="window.location.href='index.php'">
         </div>
     </div><!-- end login -->
 </body>
