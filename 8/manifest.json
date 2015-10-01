@@ -1,0 +1,27 @@
+{
+"name": "my research book2",
+"version": "0.1",
+"manifest_version": 2,
+
+"description": "URLの取得",
+
+"permissions": [
+    "tabs", "storage", "unlimitedStorage", "http://*/*"
+],
+    "background": {
+    "scripts": ["js/jquery-2.1.1.min.js","js/background.js"]
+  },
+    "content_scripts": [
+    {
+      "matches" : ["http://*/*", "https://*/*"],
+      "js" : ["js/jquery-2.1.1.min.js","js/contentscript.js"]
+      //"run_at" : "document_end" // スクリプト実行タイミング
+    }
+  ],
+    
+"browser_action": {
+"default_icon": "icon_mrb19.png",
+"default_title": "my research book2",
+"default_popup": "popup.html"
+}
+}
