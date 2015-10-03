@@ -1,0 +1,5 @@
+<IfModule mod_php5.c>
+AddType "application/x-httpd-php" .php .html
+php_value default_charset utf-8
+php_value mbstring.internal_encoding UTF-8
+</IfModule>

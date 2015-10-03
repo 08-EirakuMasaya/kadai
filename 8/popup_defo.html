@@ -1,22 +1,8 @@
 <!DOCTYPE html>
-<?php 
-session_start(); 		// セッションを使うときは宣言
-if (!isset($_SESSION["log"])) {  //isset（イズセット）で設定されているかどうかの判定
-$btn = 'btn_admin.php';	
-}else{
-    $btn = 'btn_login.php';
-}
-?> 
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-   <!--google oauthのベース読込 -->
-    <meta name="google-signin-scope" content="profile email">
-    <meta name="google-signin-client_id" content="880365618283-gv87plj6g5mplhomvr1q6gahpl4p4fas.apps.googleusercontent.com">
-    <script src="/js/platform.js" async defer></script>
-    <!--スタイルシート読込 -->
     <link rel="stylesheet" href="css/sample.css">
-    <!--jquery読込 -->
     <script src="js/jquery-2.1.1.min.js" type="text/javascript"></script>
 </head>
 <body>
@@ -31,7 +17,6 @@ $btn = 'btn_admin.php';
         <li id="set"><button>SET</button></li><br />
         <li id="clear_d"><button>turn off the drawing</button></li>
     </ul>
-    <?php include($btn); ?>
   </main>
 <script src="js/jquery-2.1.1.min.js" type="text/javascript"></script>
 <script src="js/main.js" type="text/javascript"></script>
