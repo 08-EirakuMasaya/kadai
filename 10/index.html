@@ -32,13 +32,14 @@
         var last_message = "dummy";
         //htmlに書き込む命令文
         function renderMessage(message) {
+            var checkbox = '<input type="checkbox" id="check' +message.id+ '" name="check' +message.id+ '" value = "'+message.id+'">';
             var name_html = '<p class="post-text">NAME：' + escapeHTML(message.value.name) + '</p>';
             var message_html = '<p class="post-text">COMENT:' + escapeHTML(message.value.content) + '</p>';
             var date_html = '';
             if(message.value.date) {
                 date_html = '<p class="post-date">投稿時間：'+escapeHTML( new Date(message.value.date).toLocaleString())+'</p>'; //「toLocaleString()」で時間表記を整形している
             }
-            $("#"+last_message).before('<div id="'+message.id+'" class="post">' + name_html + message_html + date_html + '</div>');
+            $("#"+last_message).before('<div id="'+message.id+'" class="post">' + checkbox + '<label for="check' +message.id+ '">' + name_html + message_html + date_html + '</label></div>');
             last_message = message.id;
         }
         function post() {
@@ -70,6 +71,15 @@
     function escapeHTML(val) {
         return $('<div>').text(val).html();
     };
+  //  $('#select_all').click(function(){ //全選択・全解除をクリックしたとき
+    //var items = $(this).closest('"#'+message.id+'"').next().find('input');
+    //if($(this).is(':checked')) { //全選択・全解除がcheckedだったら
+      //  $(items).prop('checked', true); //アイテムを全部checkedにする
+    //} else { //全選択・全解除がcheckedじゃなかったら
+      //  $(items).prop('checked', false); //アイテムを全部checkedはずす
+    //}
+//});
+        
     </script>
 </head>
 
@@ -104,6 +114,9 @@
 
 
             <button id="post" class="postarea-button">投稿する</button>
+            <!--<input type="button" id="slect_all" name="delete" value="すべて選択"> -->
+            <input type="button" id="delete" name="delete" value="チェックした投稿を削除">
+            
         </div>
     </div>
 
